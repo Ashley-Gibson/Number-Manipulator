@@ -1,16 +1,9 @@
 ﻿namespace NumberManipulator
 {
-    partial class Form1
+    partial class Form
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.MaxValueButton = new System.Windows.Forms.Button();
@@ -76,7 +65,7 @@
             this.NormalizeButton.Name = "NormalizeButton";
             this.NormalizeButton.Size = new System.Drawing.Size(150, 40);
             this.NormalizeButton.TabIndex = 3;
-            this.NormalizeButton.Text = "Normalize the list of values";
+            this.NormalizeButton.Text = "Normalise the list of values";
             this.NormalizeButton.UseVisualStyleBackColor = true;
             this.NormalizeButton.Click += new System.EventHandler(this.NormalizeButton_Click_1);
             // 
@@ -141,7 +130,7 @@
             this.errorTextbox.Visible = false;
             this.errorTextbox.Click += new System.EventHandler(this.errorTextbox_Click);
             // 
-            // Form1
+            // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -156,8 +145,8 @@
             this.Controls.Add(this.MaxValueButton);
             this.Controls.Add(this.smallestLabel);
             this.Controls.Add(this.largestLabel);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Form";
+            this.Text = "Form";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
