@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NumberManipulator
@@ -131,10 +127,9 @@ namespace NumberManipulator
 
             textBox1.Text = outputString;
         }
-
-        /*
+                
         // Changes the range of values in the list to be in the range -1 to 1 - Intended to work with any number of values
-        public void normalize2(List<Double> list)
+        /*public void normalize2(List<Double> list)
         {
             // Create 2D array of a copy of the List and its position in terms of value
             double[][] listArray = { };
