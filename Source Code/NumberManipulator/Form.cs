@@ -14,10 +14,11 @@ namespace NumberManipulator
 
         #region Main Logic
 
-        private static int GetMaxValueIndex(List<Double> list)
+        private int GetMaxValueIndex(List<Double> list)
         {
             int i = 1;
             double largestItem = list[0];
+            int largestItemIndex = 0;
             double item = 0.0;
 
             while (i < list.Count)
@@ -25,18 +26,22 @@ namespace NumberManipulator
                 item = list[i];
 
                 if (item > largestItem)
+                {
                     largestItem = item;
+                    largestItemIndex = i;
+                }
 
                 i++;
             }
            
-            return (int)Math.Round(largestItem, 0);
+            return largestItemIndex;
         }
 
-        public static int GetMinValueIndex(List<Double> list)
+        public int GetMinValueIndex(List<Double> list)
         {
             int i = 1;
             double smallestItem = list[0];
+            int smallestItemIndex = 0;
             double item = 0.0;
 
             while (i < list.Count)
@@ -44,12 +49,15 @@ namespace NumberManipulator
                 item = list[i];
 
                 if (item < smallestItem)
+                {
                     smallestItem = item;
+                    smallestItemIndex = i;
+                }
 
                 i++;
             }
 
-            return (int)Math.Round(smallestItem, 0);
+            return smallestItemIndex;
         }
 
         public List<Double> NormaliseList(List<Double> list)
@@ -95,7 +103,7 @@ namespace NumberManipulator
         public List<Double> ConvertStringToList()
         {
             bool errorFound = false;
-            string textboxInput = textBox1.Text;
+            string textboxInput = txtInputOutput.Text;
 
             ValidationCheck(textboxInput, ref errorFound);
 
@@ -121,48 +129,48 @@ namespace NumberManipulator
 
             if (errorFound)
             {
-                errorTextbox.Visible = true;
-                errorTextbox.Text = errorMessage;
+                lblError.Visible = true;
+                lblError.Text = errorMessage;
             }
             else
-                errorTextbox.Visible = false;
+                lblError.Visible = false;
         }
 
         #endregion
 
         #region UI Functions
 
-        private void MaxValueButton_Click_1(object sender, EventArgs e)
+        private void btnMaxValue_Click_1(object sender, EventArgs e)
         {
             List<Double> list = ConvertStringToList();
 
             if (list != null)
             {
-                label2.Text = GetMaxValueIndex(list).ToString();
+                lblSmallestLargestNumber.Text = GetMaxValueIndex(list).ToString();
 
-                largestLabel.Visible = true;
-                smallestLabel.Visible = false;
+                lblLargest.Visible = true;
+                lblSmallest.Visible = false;
             }
         }
 
-        private void MinValueButton_Click_1(object sender, EventArgs e)
+        private void btnMinValue_Click_1(object sender, EventArgs e)
         {
             List<Double> list = ConvertStringToList();
 
             if (list != null)
             {
-                label2.Text = GetMinValueIndex(list).ToString();
+                lblSmallestLargestNumber.Text = GetMinValueIndex(list).ToString();
 
-                largestLabel.Visible = false;
-                smallestLabel.Visible = true;
+                lblLargest.Visible = false;
+                lblSmallest.Visible = true;
             }
         }
 
-        private void NormalizeButton_Click_1(object sender, EventArgs e)
+        private void btnNormalise_Click_1(object sender, EventArgs e)
         {
-            largestLabel.Visible = false;
-            smallestLabel.Visible = false;
-            label2.Visible = false;
+            lblLargest.Visible = false;
+            lblSmallest.Visible = false;
+            lblSmallestLargestNumber.Visible = false;
 
             List<Double> list = ConvertStringToList();
 
@@ -170,15 +178,15 @@ namespace NumberManipulator
             {
                 string outputString = string.Join(",", NormaliseList(list).ToArray());
 
-                textBox1.Text = outputString;
+                txtInputOutput.Text = outputString;
             }
         }
 
-        private void SortButton_Click_1(object sender, EventArgs e)
+        private void btnSortAscending_Click_1(object sender, EventArgs e)
         {
-            largestLabel.Visible = false;
-            smallestLabel.Visible = false;
-            label2.Visible = false;
+            lblLargest.Visible = false;
+            lblSmallest.Visible = false;
+            lblSmallestLargestNumber.Visible = false;
 
             List<Double> list = ConvertStringToList();
 
@@ -186,42 +194,8 @@ namespace NumberManipulator
             {
                 string outputString = string.Join(",", InsertionSort(list).ToArray());
 
-                textBox1.Text = outputString;
+                txtInputOutput.Text = outputString;
             }
-        }
-
-        #endregion
-
-        #region Unused functions
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void largestLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void smallestLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void errorTextbox_Click(object sender, EventArgs e)
-        {
-
         }
 
         #endregion
