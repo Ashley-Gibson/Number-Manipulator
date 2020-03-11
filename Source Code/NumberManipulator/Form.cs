@@ -150,6 +150,7 @@ namespace NumberManipulator
 
                 lblLargest.Visible = true;
                 lblSmallest.Visible = false;
+                lblSmallestLargestNumber.Visible = true;
             }
         }
 
@@ -163,6 +164,7 @@ namespace NumberManipulator
 
                 lblLargest.Visible = false;
                 lblSmallest.Visible = true;
+                lblSmallestLargestNumber.Visible = true;
             }
         }
 
