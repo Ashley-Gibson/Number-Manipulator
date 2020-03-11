@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberManipulator", "NumberManipulator\NumberManipulator.csproj", "{8E77316E-976F-4853-B503-16C37FEC5027}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit Testing", "Unit Testing\Unit Testing.csproj", "{57B49568-0F5A-4501-A9AD-DF5AA51B3DD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{8E77316E-976F-4853-B503-16C37FEC5027}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E77316E-976F-4853-B503-16C37FEC5027}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E77316E-976F-4853-B503-16C37FEC5027}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57B49568-0F5A-4501-A9AD-DF5AA51B3DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57B49568-0F5A-4501-A9AD-DF5AA51B3DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57B49568-0F5A-4501-A9AD-DF5AA51B3DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57B49568-0F5A-4501-A9AD-DF5AA51B3DD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {33286E1A-6338-47C5-B3EE-69761FAECB5D}
 	EndGlobalSection
 EndGlobal
