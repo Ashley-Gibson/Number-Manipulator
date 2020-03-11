@@ -14,7 +14,7 @@ namespace NumberManipulator
 
         #region Main Logic
 
-        private static int getMaxValueIndex(List<Double> list)
+        private static int GetMaxValueIndex(List<Double> list)
         {
             int i = 1;
             double largestItem = list[0];
@@ -33,7 +33,7 @@ namespace NumberManipulator
             return (int)Math.Round(largestItem, 0);
         }
 
-        public static int getMinValueIndex(List<Double> list)
+        public static int GetMinValueIndex(List<Double> list)
         {
             int i = 1;
             double smallestItem = list[0];
@@ -52,60 +52,19 @@ namespace NumberManipulator
             return (int)Math.Round(smallestItem, 0);
         }
 
-        public void normalise(List<Double> list)
+        public List<Double> NormaliseList(List<Double> list)
         {
-            if (list[0] > list[1] && list[0] > list[2])
-            {
-                list[0] = 1;
+            List<Double> sortedList = InsertionSort(list);
 
-                if (list[1] > list[2])
-                {
-                    list[1] = 0;
-                    list[2] = -1;
-                }
-                else
-                {
-                    list[1] = -1;
-                    list[2] = 0;
-                }
-            }
-            else if (list[1] > list[0] && list[1] > list[2])
+            for (int i = 0; i < sortedList.Count; i++)
             {
-                list[1] = 1;
-
-                if (list[0] > list[2])
-                {
-                    list[0] = 0;
-                    list[2] = -1;
-                }
-                else
-                {
-                    list[0] = -1;
-                    list[2] = 0;
-                }
-            }
-            else if (list[2] > list[0] && list[2] > list[1])
-            {
-                list[2] = 1;
-
-                if (list[0] > list[1])
-                {
-                    list[0] = 0;
-                    list[1] = -1;
-                }
-                else
-                {
-                    list[0] = -1;
-                    list[1] = 0;
-                }
+                sortedList[i] = i - 1;
             }
 
-            string outputString = string.Join(",", list.ToArray());
-
-            textBox1.Text = outputString;
+            return sortedList;
         }
 
-        public void sort(List<Double> list)
+        public List<Double> InsertionSort(List<Double> list)
         {
             int previousItem;
             double itemToProcess;
@@ -126,21 +85,19 @@ namespace NumberManipulator
                 list[previousItem + 1] = itemToProcess;
             }
 
-            string outputString = string.Join(",", list.ToArray());
-
-            textBox1.Text = outputString;
+            return list;
         }
 
         #endregion
 
         #region Helper Functions
 
-        public List<Double> convertStringToList()
+        public List<Double> ConvertStringToList()
         {
             bool errorFound = false;
             string textboxInput = textBox1.Text;
 
-            validationCheck(textboxInput, ref errorFound);
+            ValidationCheck(textboxInput, ref errorFound);
 
             if (!errorFound)
             {
@@ -152,7 +109,7 @@ namespace NumberManipulator
                 return null;
         }
 
-        public void validationCheck(string textboxInput, ref bool errorFound)
+        public void ValidationCheck(string textboxInput, ref bool errorFound)
         {
             string errorMessage = "";
 
@@ -177,11 +134,11 @@ namespace NumberManipulator
 
         private void MaxValueButton_Click_1(object sender, EventArgs e)
         {
-            List<Double> list = convertStringToList();
+            List<Double> list = ConvertStringToList();
 
             if (list != null)
             {
-                label2.Text = getMaxValueIndex(list).ToString();
+                label2.Text = GetMaxValueIndex(list).ToString();
 
                 largestLabel.Visible = true;
                 smallestLabel.Visible = false;
@@ -190,11 +147,11 @@ namespace NumberManipulator
 
         private void MinValueButton_Click_1(object sender, EventArgs e)
         {
-            List<Double> list = convertStringToList();
+            List<Double> list = ConvertStringToList();
 
             if (list != null)
             {
-                label2.Text = getMinValueIndex(list).ToString();
+                label2.Text = GetMinValueIndex(list).ToString();
 
                 largestLabel.Visible = false;
                 smallestLabel.Visible = true;
@@ -207,10 +164,14 @@ namespace NumberManipulator
             smallestLabel.Visible = false;
             label2.Visible = false;
 
-            List<Double> list = convertStringToList();
+            List<Double> list = ConvertStringToList();
 
             if (list != null)
-                normalise(list);
+            {
+                string outputString = string.Join(",", NormaliseList(list).ToArray());
+
+                textBox1.Text = outputString;
+            }
         }
 
         private void SortButton_Click_1(object sender, EventArgs e)
@@ -219,10 +180,14 @@ namespace NumberManipulator
             smallestLabel.Visible = false;
             label2.Visible = false;
 
-            List<Double> list = convertStringToList();
+            List<Double> list = ConvertStringToList();
 
             if (list != null)
-                sort(list);
+            {
+                string outputString = string.Join(",", InsertionSort(list).ToArray());
+
+                textBox1.Text = outputString;
+            }
         }
 
         #endregion
