@@ -12,7 +12,7 @@ namespace NumberManipulator
 
         #region Main Logic
 
-        private int GetMaxValueIndex(List<Double> list)
+        public int GetMaxValueIndex(List<Double> list)
         {
             int i = 1;
             double largestItem = list[0];
