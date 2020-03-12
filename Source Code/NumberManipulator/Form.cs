@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 
 namespace NumberManipulator
 {
@@ -98,51 +96,11 @@ namespace NumberManipulator
 
         #endregion
 
-        #region Helper Functions
-
-        public List<Double> ConvertStringToList()
-        {
-            bool errorFound = false;
-            string textboxInput = txtInputOutput.Text;
-
-            ValidationCheck(textboxInput, ref errorFound);
-
-            if (!errorFound)
-            {
-                List<Double> list = textboxInput.Split(',').Select(Double.Parse).ToList();
-
-                return list;
-            }
-            else
-                return null;
-        }
-
-        public void ValidationCheck(string textboxInput, ref bool errorFound)
-        {
-            string errorMessage = "";
-
-            if (string.IsNullOrWhiteSpace(textboxInput))
-            {
-                errorMessage = "Error: Please input a list of numbers";
-                errorFound = true;
-            }
-
-            if (errorFound)
-            {
-                lblError.Visible = true;
-                lblError.Text = errorMessage;
-            }
-            else
-                lblError.Visible = false;
-        }
-
-        #endregion
-
         #region UI Functions
 
         private void btnMaxValue_Click_1(object sender, EventArgs e)
         {
-            List<Double> list = ConvertStringToList();
+            List<Double> list = Helper.ConvertStringToList(txtInputOutput.Text, ref lblError);
 
             if (list != null)
             {
@@ -156,7 +114,7 @@ namespace NumberManipulator
 
         private void btnMinValue_Click_1(object sender, EventArgs e)
         {
-            List<Double> list = ConvertStringToList();
+            List<Double> list = Helper.ConvertStringToList(txtInputOutput.Text, ref lblError);
 
             if (list != null)
             {
@@ -174,7 +132,7 @@ namespace NumberManipulator
             lblSmallest.Visible = false;
             lblSmallestLargestNumber.Visible = false;
 
-            List<Double> list = ConvertStringToList();
+            List<Double> list = Helper.ConvertStringToList(txtInputOutput.Text, ref lblError);
 
             if (list != null)
             {
@@ -190,7 +148,7 @@ namespace NumberManipulator
             lblSmallest.Visible = false;
             lblSmallestLargestNumber.Visible = false;
 
-            List<Double> list = ConvertStringToList();
+            List<Double> list = Helper.ConvertStringToList(txtInputOutput.Text, ref lblError);
 
             if (list != null)
             {
