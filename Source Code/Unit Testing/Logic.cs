@@ -6,8 +6,21 @@ namespace Unit_Testing
     public class Logic_Tests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void GetMaxValueIndex_Test()
         {
+            // Arrange
+            List<Double> inputList = new List<Double>()
+            {
+                1, 4, 5, 6, 7
+            };
+
+            int expectedResult = 7;
+
+            // Act
+            int actualResult = GetMaxValueIndex(inputList);
+
+            // Assert
+            Assert.IsEqual(expectedResult, actualResult);
         }
     }
 }
